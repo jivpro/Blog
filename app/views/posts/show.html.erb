@@ -8,13 +8,17 @@
   <%= @post.body %>
 </p>
 
-<%= link_to "Edit", edit_post_path(@post) %> | 
-<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+<% if user_signed_in? %>
+  <small><%= link_to "Edit", edit_post_path(@post) %></small> | 
+  <small><%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %></small>
+<% end %>
 
 <div class="comments">
     <h3><%= pluralize(@post.comments.count, "comment") %> :</h3>
     <%= render @post.comments %>
 
-    <h3>Add a comment : </h3>
-    <%=render "comments/form" %>
+    <% if user_signed_in? %>
+      <h3>Add a comment : </h3>
+      <%=render "comments/form" %>
+    <% end %>
 </div>

@@ -18,21 +18,31 @@
         <% end %>
       </div>
 
+      <h3>Social</h3>
       <ul>
-        <li class="category">Social</li>
         <li><a href="https://www.facebook.com/krishna.pandit.9699">facebook</a></li>
         <li><a href="https://www.twitter.com/krishnapandit0">twitter</a></li>
         <li><a href="https://www.instagram.com/krishnapandit501">instagram</a></li>
         <li><a href="https://www.github.com/jivpro">github</a></li>
-        <li>About</li>
+        <li><%= link_to 'About', about_path %></li>
       </ul>
 
+      <h3>Create account : </h3>
       <ul>
-        <li class="category">Blog</li>
+        <li><%= link_to 'Sign_In', new_user_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+      </ul>
+
+      <h3>Blog</h3>
+      <ul>
         <li><%= link_to "Posts", root_path %></li>
         <li><%= link_to "Create post", new_post_path %></li>
       </ul>
     </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
 
     <%= yield %>
   </body>
