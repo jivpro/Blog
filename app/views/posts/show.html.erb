@@ -7,3 +7,14 @@
 <p class="body">
   <%= @post.body %>
 </p>
+
+<%= link_to "Edit", edit_post_path(@post) %> | 
+<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>
+
+<div class="comments">
+    <h3><%= pluralize(@post.comments.count, "comment") %> :</h3>
+    <%= render @post.comments %>
+
+    <h3>Add a comment : </h3>
+    <%=render "comments/form" %>
+</div>
